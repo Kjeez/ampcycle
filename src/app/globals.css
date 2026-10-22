@@ -156,6 +156,14 @@ p {
   flex-direction: column;
   gap: 20px;
 }
+/* Side headings that stay put beside a long column. Only when the layout is two
+   columns wide; stacked on narrow screens they would cover the content below. */
+@media (min-width: 1100px) {
+  .pin-wide {
+    position: sticky;
+    top: 120px;
+  }
+}
 .paper {
   background: var(--paper);
   color: var(--ink);

@@ -324,7 +324,7 @@ export default function HomePage() {
           alignItems: 'start',
         }}
       >
-        <div data-reveal className="stack" style={{ gap: 28, position: 'sticky', top: 120 }}>
+        <div data-reveal className="stack pin-wide" style={{ gap: 28 }}>
           <div className="eyebrow">Future roadmap</div>
           <h2 style={{ fontSize: 'clamp(34px,4vw,64px)', letterSpacing: '-0.04em', lineHeight: 1.04, textWrap: 'balance' }}>
             Our vision is to make India a global leader in sustainable battery material recovery.

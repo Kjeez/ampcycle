@@ -120,7 +120,7 @@ export default function ContactPage() {
           alignItems: 'start',
         }}
       >
-        <div data-reveal className="stack" style={{ position: 'sticky', top: 120 }}>
+        <div data-reveal className="stack pin-wide">
           <div className="eyebrow">Frequently asked questions</div>
           <h2 style={{ fontSize: 'clamp(34px,4vw,64px)', letterSpacing: '-0.04em', lineHeight: 1 }}>Common questions about our services</h2>
         </div>
