@@ -620,12 +620,14 @@ p {
   border-top: 1px solid var(--line);
   padding-top: 20px;
 }
+/* Sized to fit the gutters at every width (~4.4em wide) with room below for p/y descenders. */
 .wordmark {
-  font-size: clamp(80px, 21vw, 380px);
+  font-size: clamp(48px, 19.5vw, 360px);
   letter-spacing: -0.065em;
-  line-height: 0.78;
+  line-height: 1;
   font-weight: 500;
-  margin: 0 0 -0.06em -0.04em;
+  margin: 0 0 0 -0.04em;
+  padding-bottom: 0.06em;
   white-space: nowrap;
   will-change: transform;
 }

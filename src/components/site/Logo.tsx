@@ -9,7 +9,7 @@ export function Logo({ height = 22 }: { height?: number }) {
       width={413}
       height={92}
       priority
-      style={{ height, width: 'auto', display: 'block', alignSelf: 'flex-start' }}
+      style={{ height, width: 'auto', display: 'block' }}
     />
   );
 }

@@ -24,7 +24,9 @@ export function Footer() {
     <footer className="site-footer" data-bordered={pathname === '/contact'}>
       <div className="footer-cols">
         <div style={{ maxWidth: 280 }}>
-          <Logo height={26} />
+          <div style={{ alignSelf: 'flex-start' }}>
+            <Logo height={26} />
+          </div>
           <p style={{ color: 'var(--dim)', lineHeight: 1.6 }}>
             Pioneering sustainable battery recycling solutions for a greener future.
           </p>
