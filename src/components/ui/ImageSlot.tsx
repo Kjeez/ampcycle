@@ -18,14 +18,23 @@ const VIDEO = /\.(mp4|webm)$/i;
  * until one is set in lib/images.ts. Videos use a same-named .jpg as their poster.
  */
 export function ImageSlot({ id, placeholder, src, sizes = '100vw', priority }: Props) {
-  const url = src ?? IMAGES[id];
-  const alt = placeholder.replace(/^[^:]*:\s*/, '');
+  const media = IMAGES[id];
+  const url = src ?? media?.src;
+  const contain = media?.fit === 'contain';
+  const alt = media?.alt ?? placeholder.replace(/^[^:]*:\s*/, '');
   return (
     <div className="slot" data-slot={id}>
       {url && VIDEO.test(url) ? (
         <SlotVideo src={url} poster={url.replace(VIDEO, '.jpg')} label={alt} />
       ) : url ? (
-        <Image src={url} alt={alt} fill sizes={sizes} priority={priority} />
+        <Image
+          src={url}
+          alt={alt}
+          fill
+          sizes={sizes}
+          priority={priority}
+          style={contain ? { objectFit: 'contain', padding: '8%', boxSizing: 'border-box' } : undefined}
+        />
       ) : (
         <div className="slot-empty">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
