@@ -366,7 +366,7 @@ export default function HomePage() {
           alignItems: 'start',
         }}
       >
-        <div data-reveal className="stack">
+        <div data-reveal className="stack pin-wide">
           <div className="eyebrow">FAQ</div>
           <h2 style={{ fontSize: 'clamp(34px,4vw,64px)', letterSpacing: '-0.04em', lineHeight: 1 }}>Common questions</h2>
         </div>
