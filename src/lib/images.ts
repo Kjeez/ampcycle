@@ -34,7 +34,7 @@ export const IMAGES: Partial<Record<string, SlotMedia>> = {
   'research-focus-4': PLANT,
   'research-focus-5': SORTING,
   // About
-  // 'about-hero': team at the Pune facility
+  // 'about-hero': team at the facility
   'impact-1': PACKS,
   'impact-2': SORTING,
   'impact-3': POWDER,

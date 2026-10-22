@@ -48,7 +48,7 @@ export function Footer() {
       </div>
       <div className="footer-base">
         <span>© 2026 AMPCYCLE</span>
-        <span>PUNE, INDIA</span>
+        <span>INDIA</span>
       </div>
       <div ref={word} className="wordmark" aria-hidden="true">
         AmpCycle<span className="acc">.</span>

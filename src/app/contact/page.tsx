@@ -105,7 +105,7 @@ export default function ContactPage() {
           <ImageSlot id="contact-facility" placeholder="Photo: facility exterior, MIDC Chinchwad" />
         </Parallax>
         <div className="media-tag" style={{ left: 'var(--gutter)', top: 28 }}>
-          18.63° N · 73.80° E · PUNE
+          18.63° N · 73.80° E · MIDC CHINCHWAD
         </div>
       </section>
 

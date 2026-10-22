@@ -23,7 +23,7 @@ const TECH = [
   {
     n: '03',
     t: 'Scalable technology',
-    d: 'Modular electrolytic cells add capacity as feedstock grows, from a single line in Pune to a statewide network.',
+    d: 'Modular electrolytic cells add capacity as feedstock grows, from a single line to a statewide network.',
   },
 ];
 
@@ -106,7 +106,7 @@ export default function HomePage() {
         <div className="split" style={{ gap: 40 }}>
           <div className="stack" style={{ gap: 28 }}>
             <div data-reveal className="eyebrow eyebrow--dot">
-              Li-ion battery recycling · Pune, India
+              Li-ion battery recycling · India
             </div>
             <h1 data-reveal style={{ fontSize: 'clamp(48px,7.2vw,124px)', lineHeight: 0.94, letterSpacing: '-0.045em', textWrap: 'balance' }}>
               Battery-grade metals from spent lithium-ion cells.
@@ -132,7 +132,7 @@ export default function HomePage() {
             <ImageSlot id="hero-facility" placeholder="Hero photo: battery modules / recycling line, wide" priority />
           </Parallax>
           <div className="media-tag" style={{ right: 20, bottom: 18 }}>
-            MIDC CHINCHWAD · PUNE
+            MIDC CHINCHWAD · MAHARASHTRA
           </div>
         </div>
         <Stats />
@@ -262,7 +262,7 @@ export default function HomePage() {
             </span>
           </div>
           <h2 style={{ fontSize: 'clamp(34px,4.4vw,72px)', letterSpacing: '-0.045em', lineHeight: 1, maxWidth: 1100, textWrap: 'balance' }}>
-            Closing the loop for a two-wheeler EV maker in Pune.
+            Closing the loop for a two-wheeler EV maker.
           </h2>
         </div>
         <div

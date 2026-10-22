@@ -70,7 +70,7 @@ export function Stats() {
       </div>
       <div style={{ ...cell, padding: '32px 0 40px 24px', borderLeft: border }}>
         <div style={num}>2019</div>
-        <div className={cap}>Founded in Pune</div>
+        <div className={cap}>Year founded</div>
       </div>
     </div>
   );

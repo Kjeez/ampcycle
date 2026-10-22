@@ -15,7 +15,7 @@ export function Intro() {
       <div className="intro-bar">
         <span />
       </div>
-      <div className="intro-cap">RECOVERING CRITICAL METALS · PUNE</div>
+      <div className="intro-cap">RECOVERING CRITICAL METALS · INDIA</div>
     </div>
   );
 }

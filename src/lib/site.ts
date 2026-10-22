@@ -19,7 +19,7 @@ export const CONTACT = {
   email: 'contact@ampcycle.in',
   phone: '+91 98348 30928',
   tel: '+919834830928',
-  area: 'MIDC Chinchwad, Pune',
+  area: 'MIDC Chinchwad, Maharashtra',
   address:
     'Plot No. 20/6, D1 Block, Chinchwad Road, MIDC Chinchwad, Pimpri Chinchwad, Pune, Maharashtra, India 411019',
   maps: 'https://maps.google.com/?q=MIDC+Chinchwad+Pune+411019',

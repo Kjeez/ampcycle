@@ -37,7 +37,7 @@ export default function ResearchPage() {
             </h1>
           </div>
           <p data-reveal data-reveal-delay="150" className="lead">
-            Our R&amp;D work develops and refines the electrochemical process at the heart of AmpCycle, from bench experiments in Pune to modular
+            Our R&amp;D work develops and refines the electrochemical process at the heart of AmpCycle, from bench experiments to modular
             cells ready for scale.
           </p>
         </div>
@@ -46,7 +46,7 @@ export default function ResearchPage() {
             <ImageSlot id="research-hero" placeholder="Photo: lab bench, glassware, electrochemical setup" priority />
           </Parallax>
           <div className="media-tag" style={{ right: 20, bottom: 18 }}>
-            AMPCYCLE LAB · PUNE
+            AMPCYCLE LAB
           </div>
         </div>
       </section>

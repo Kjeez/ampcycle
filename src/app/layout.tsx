@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({ subsets: ['latin'], weight: ['400', '500'], varia
 export const metadata: Metadata = {
   title: { default: 'AmpCycle · Li-ion battery recycling', template: '%s · AmpCycle' },
   description:
-    'AmpCycle recovers lithium, cobalt and nickel from spent lithium-ion batteries with low-energy electrochemical extraction. Pune, India.',
+    'AmpCycle recovers lithium, cobalt and nickel from spent lithium-ion batteries with low-energy electrochemical extraction.',
 };
 
 // Runs before paint: enables reveal styles and skips the intro after the first visit this session.

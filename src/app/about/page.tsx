@@ -8,7 +8,7 @@ import { CtaBand } from '@/components/ui/CtaBand';
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Founded in Pune in 2019, AmpCycle is building a cleaner way to recover the critical metals inside India’s lithium-ion batteries.',
+  description: 'Founded in 2019, AmpCycle is building a cleaner way to recover the critical metals inside India’s lithium-ion batteries.',
 };
 
 const INNOV = [
@@ -47,7 +47,7 @@ export default function AboutPage() {
         >
           <div data-reveal className="media" style={{ aspectRatio: '4 / 3' }}>
             <Parallax mode="page" factor={0.12} overscan="12%">
-              <ImageSlot id="about-hero" placeholder="Photo: team at the Pune facility" sizes="(max-width: 900px) 100vw, 50vw" priority />
+              <ImageSlot id="about-hero" placeholder="Photo: team at the facility" sizes="(max-width: 900px) 100vw, 50vw" priority />
             </Parallax>
           </div>
           <div data-reveal data-reveal-delay="150" className="stack" style={{ gap: 24, maxWidth: 520 }}>
@@ -63,7 +63,7 @@ export default function AboutPage() {
               style={{ display: 'flex', gap: 40, paddingTop: 12, borderTop: '1px solid var(--line-2)', fontSize: 12, letterSpacing: '.08em', color: 'var(--dim)' }}
             >
               <span>EST. 2019</span>
-              <span>PUNE, INDIA</span>
+              <span>INDIA</span>
             </div>
           </div>
         </div>
@@ -147,7 +147,7 @@ export default function AboutPage() {
             FOUNDER &amp; CEO
           </div>
           <p className="body" style={{ fontSize: 17, lineHeight: 1.65 }}>
-            An engineer and entrepreneur, Ravindra founded AmpCycle in Pune in 2019 to build a chemical-free, energy-efficient way to recover the
+            An engineer and entrepreneur, Ravindra founded AmpCycle in 2019 to build a chemical-free, energy-efficient way to recover the
             metals inside India&apos;s lithium-ion batteries.
           </p>
         </div>
