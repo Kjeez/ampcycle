@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useRef } from 'react';
 import { useReducedMotion, useScrollFrame } from '@/lib/hooks';
 import { CONTACT, FOOTER_NAV } from '@/lib/site';
+import { Logo } from './Logo';
 
 export function Footer() {
   const pathname = usePathname();
@@ -23,7 +24,7 @@ export function Footer() {
     <footer className="site-footer" data-bordered={pathname === '/contact'}>
       <div className="footer-cols">
         <div style={{ maxWidth: 280 }}>
-          <div className="logo">AmpCycle</div>
+          <Logo height={26} />
           <p style={{ color: 'var(--dim)', lineHeight: 1.6 }}>
             Pioneering sustainable battery recycling solutions for a greener future.
           </p>

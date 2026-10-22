@@ -432,17 +432,11 @@ p {
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 600;
-  font-size: 19px;
-  letter-spacing: -0.02em;
+  min-height: 44px;
+  transition: opacity 0.2s;
 }
-.logo::before {
-  content: '';
-  width: 12px;
-  height: 12px;
-  background: var(--acc);
-  transform: rotate(45deg);
+.logo:hover {
+  opacity: 0.8;
 }
 .site-nav {
   display: flex;
@@ -514,6 +508,12 @@ p {
 }
 
 @media (max-width: 760px) {
+  .site-header {
+    transition: background 0.4s, border-color 0.4s, transform 0.4s var(--ease-out);
+  }
+  .site-header[data-hidden='true'] {
+    transform: translateY(-100%);
+  }
   .site-nav {
     display: none;
   }

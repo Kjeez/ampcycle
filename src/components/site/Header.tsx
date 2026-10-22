@@ -2,9 +2,10 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useScrollFrame } from '@/lib/hooks';
 import { CONTACT, NAV } from '@/lib/site';
+import { Logo } from './Logo';
 
 const MENU = [{ href: '/', label: 'Home' }, ...NAV, { href: '/contact', label: 'Contact' }];
 
@@ -12,7 +13,18 @@ export function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  useScrollFrame(() => setScrolled(window.scrollY > 40));
+  const [hidden, setHidden] = useState(false);
+  const lastY = useRef(0);
+
+  // Hides on scroll-down and returns on scroll-up; CSS applies it on mobile only.
+  useScrollFrame(() => {
+    const y = window.scrollY;
+    const dy = y - lastY.current;
+    setScrolled(y > 40);
+    if (y < 80) setHidden(false);
+    else if (Math.abs(dy) > 4) setHidden(dy > 0);
+    lastY.current = y;
+  });
 
   // Close on navigation; lock page scroll and listen for Escape while open.
   useEffect(() => setOpen(false), [pathname]);
@@ -35,9 +47,9 @@ export function Header() {
 
   return (
     <>
-      <header className="site-header" data-scrolled={scrolled || open}>
-        <Link href="/" className="logo">
-          AmpCycle
+      <header className="site-header" data-scrolled={scrolled || open} data-hidden={hidden && !open}>
+        <Link href="/" className="logo" aria-label="AmpCycle home">
+          <Logo />
         </Link>
         <nav className="site-nav" aria-label="Main">
           {NAV.map((n) => (
