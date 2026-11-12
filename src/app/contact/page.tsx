@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const FAQS: [string, string][] = [
   ['What types of batteries do you recycle?', 'We specialise in recycling lithium-ion batteries commonly used in consumer electronics, electric vehicles and industrial applications.'],
   ['Why is recycling lithium-ion batteries important?', 'Recycling reduces environmental pollution, conserves natural resources, and recovers valuable materials like lithium, cobalt and nickel for reuse.'],
-  ['How does your recycling process work?', 'Our electro-extraction process safely discharges batteries, uses pH-optimised solvents for material recovery, and recovers metals through a low-energy electrolytic cell.'],
+  ['How does your recycling process work?', 'Our proprietary extraction process safely discharges batteries, uses pH-optimised solvents for material recovery, and recovers metals through a low-energy extraction cell.'],
   ['Do you accept batteries from individual consumers?', 'Currently, we partner with manufacturers, OEMs and waste management companies. Individual consumers should contact local recycling centres for battery disposal.'],
   ['Is there a fee for recycling services?', 'Fees depend on battery type, quantity and specific service requirements. Please contact us for a customised quote.'],
   ['What safety measures are in place during recycling?', 'We adhere to strict safety protocols, including controlled discharging and handling procedures, to prevent hazards during the recycling process.'],
@@ -77,6 +77,21 @@ export default function ContactPage() {
             <span style={{ fontSize: 'clamp(19px,1.6vw,24px)', lineHeight: 1.4, letterSpacing: '-0.015em', maxWidth: 460 }}>{CONTACT.address}</span>
             <a
               href={CONTACT.maps}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mono acc"
+              style={{ fontSize: 12, letterSpacing: '.06em', paddingTop: 6 }}
+            >
+              OPEN IN MAPS ↗
+            </a>
+          </div>
+          <div data-reveal style={infoRow}>
+            <span className="label">{CONTACT.delhi.label}</span>
+            <span style={{ fontSize: 'clamp(19px,1.6vw,24px)', lineHeight: 1.4, letterSpacing: '-0.015em', maxWidth: 460 }}>
+              {CONTACT.delhi.address}
+            </span>
+            <a
+              href={CONTACT.delhi.maps}
               target="_blank"
               rel="noopener noreferrer"
               className="mono acc"

@@ -102,7 +102,6 @@ export function CellDiagram() {
 
   const step = Math.min(3, Math.floor(p * 3.999));
   const [a, b, c, d] = [0, 1, 2, 3].map((i) => look(i, step));
-  const plate2 = step === 2 ? 'color-mix(in oklab, var(--acc) 55%, #121412)' : '#2A2D29';
 
   return (
     <section
@@ -126,7 +125,7 @@ export function CellDiagram() {
       >
         <div className="eyebrow">Inside the extraction line</div>
         <h2 style={{ fontSize: 'clamp(30px,min(4.6vw,7vh),76px)', letterSpacing: '-0.045em', lineHeight: 1 }}>
-          Low-energy electrochemical extraction
+          AmpCycle&apos;s extraction setup
         </h2>
         <div style={{ flex: 1, minHeight: 0, width: '100%', display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
           <div
@@ -174,26 +173,73 @@ export function CellDiagram() {
             <Part
               box={{ left: '38%', top: '30%', width: '36%', height: '58%' }}
               look={c}
-              note="Modular electrolytic cells extract metals at low energy, more cleanly than traditional methods."
+              note="Modular proprietary extraction cells recover metals at low energy, more cleanly than traditional methods."
               noteWidth="clamp(150px,20vw,280px)"
-              label="Electrolytic cell stack"
+              label="AmpCycle extraction cell"
               shape={{
-                borderRadius: 4,
+                borderRadius: 6,
                 overflow: 'hidden',
                 display: 'flex',
-                alignItems: 'flex-end',
-                justifyContent: 'space-evenly',
-                padding: '0 4%',
+                flexDirection: 'column',
+                padding: '3%',
+                gap: '5%',
                 boxSizing: 'border-box',
               }}
             >
-              <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: '66%', background: c.liq, transition: T }} />
-              {Array.from({ length: 9 }, (_, i) => (
-                <div
-                  key={i}
-                  style={{ position: 'relative', width: '3%', height: i % 2 ? '78%' : '86%', background: i % 2 ? plate2 : c.ic, transition: T }}
+              {/* Branded control panel across the top of the housing */}
+              <div
+                style={{
+                  height: '20%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '0 4%',
+                  borderBottom: `1px solid ${c.bc}`,
+                  transition: T,
+                }}
+              >
+                <img
+                  src="/logo-white.png"
+                  alt=""
+                  style={{ height: '58%', width: 'auto', opacity: c.on ? 1 : 0.35, transition: 'opacity .5s' }}
                 />
-              ))}
+                <div style={{ display: 'flex', gap: 4 }}>
+                  {[0, 1, 2].map((i) => (
+                    <span key={i} style={{ width: 5, height: 5, borderRadius: '50%', background: c.ic, transition: T }} />
+                  ))}
+                </div>
+              </div>
+              {/* Three modular extraction units */}
+              <div style={{ flex: 1, display: 'flex', gap: '5%' }}>
+                {[0, 1, 2].map((i) => (
+                  <div
+                    key={i}
+                    style={{
+                      position: 'relative',
+                      flex: 1,
+                      border: `1px solid ${c.ic}`,
+                      borderRadius: 4,
+                      overflow: 'hidden',
+                      transition: T,
+                    }}
+                  >
+                    <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: '62%', background: c.liq, transition: T }} />
+                    <span
+                      style={{
+                        position: 'absolute',
+                        left: '50%',
+                        top: '14%',
+                        width: 6,
+                        height: 6,
+                        marginLeft: -3,
+                        borderRadius: '50%',
+                        background: c.on ? 'var(--acc)' : '#34372F',
+                        transition: T,
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
             </Part>
 
             <Part

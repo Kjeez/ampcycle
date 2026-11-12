@@ -7,7 +7,7 @@ import { ProgressSteps } from '@/components/ui/ProgressSteps';
 
 export const metadata: Metadata = {
   title: 'Research',
-  description: 'AmpCycle R&D: electrochemical extraction, solvent chemistry, black mass characterisation, process monitoring and traceability.',
+  description: 'AmpCycle R&D: extraction cell design, solvent chemistry, black mass characterisation, process monitoring and traceability.',
 };
 
 const STAGES = [
@@ -17,7 +17,7 @@ const STAGES = [
 ];
 
 const COLLAB = [
-  { n: '01', t: 'Academic research', d: 'Joint projects and student work on electrochemistry, separation and materials analysis.' },
+  { n: '01', t: 'Academic research', d: 'Joint projects and student work on extraction chemistry, separation and materials analysis.' },
   { n: '02', t: 'Industry pilots', d: 'Trials on your scrap or end-of-life cells to test recovery on a specific chemistry.' },
   { n: '03', t: 'Equipment and sensing', d: 'Partners building cells, sensors and automation for continuous operation.' },
   { n: '04', t: 'Policy and standards', d: 'Work on traceability and recovery reporting under India’s battery waste rules.' },
@@ -37,13 +37,13 @@ export default function ResearchPage() {
             </h1>
           </div>
           <p data-reveal data-reveal-delay="150" className="lead">
-            Our R&amp;D work develops and refines the electrochemical process at the heart of AmpCycle, from bench experiments to modular
+            Our R&amp;D work develops and refines the extraction process at the heart of AmpCycle, from bench experiments to modular
             cells ready for scale.
           </p>
         </div>
         <div data-reveal data-reveal-delay="250" className="media" style={{ height: 'clamp(320px,64vh,720px)' }}>
           <Parallax mode="page" factor={0.16} overscan="14%">
-            <ImageSlot id="research-hero" placeholder="Photo: lab bench, glassware, electrochemical setup" priority />
+            <ImageSlot id="research-hero" placeholder="Photo: lab bench, glassware, extraction setup" priority />
           </Parallax>
           <div className="media-tag" style={{ right: 20, bottom: 18 }}>
             AMPCYCLE LAB

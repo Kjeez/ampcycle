@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const cell: React.CSSProperties = { display: 'flex', flexDirection: 'column', gap: 10 };
-const num: React.CSSProperties = { fontSize: 'clamp(48px,5vw,80px)', letterSpacing: '-0.04em', lineHeight: 1 };
+const cell: React.CSSProperties = { display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: 10 };
+const num: React.CSSProperties = { fontSize: 'clamp(36px,5vw,80px)', letterSpacing: '-0.04em', lineHeight: 1 };
 const cap = 'mono-cap';
 
 /** Headline figures that count up the first time they scroll into view. */
@@ -44,33 +44,34 @@ export function Stats() {
     };
   }, []);
 
-  const border = '1px solid var(--line)';
   return (
-    <div
-      ref={ref}
-      style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%,220px),1fr))', borderTop: border }}
-    >
-      <div style={{ ...cell, padding: '32px 24px 40px 0' }}>
+    <div ref={ref} className="stats">
+      <div style={cell}>
         <div style={num}>
           {Math.round(98 * k)}
           <span className="acc">%</span>
         </div>
-        <div className={cap}>Metal recovery efficiency</div>
+        <div className={cap}>Extraction efficiency</div>
       </div>
-      <div style={{ ...cell, padding: '32px 24px 40px', borderLeft: border }}>
+      <div style={cell}>
         <div style={num}>
-          {Math.round(99 * k)}
+          {(99.9 * k).toFixed(1)}
           <span className="acc">%</span>
         </div>
-        <div className={cap}>Purity · Li, Co, Ni</div>
+        <div className={cap}>Material purity</div>
       </div>
-      <div style={{ ...cell, padding: '32px 24px 40px', borderLeft: border }}>
-        <div style={num}>{Math.max(1, Math.round(4 * k))}</div>
-        <div className={cap}>Stage extraction process</div>
+      <div style={cell}>
+        <div style={num}>
+          {Math.round(30 * k)}
+          <span className="acc">%</span>
+        </div>
+        <div className={cap}>Lower energy consumption</div>
       </div>
-      <div style={{ ...cell, padding: '32px 0 40px 24px', borderLeft: border }}>
-        <div style={num}>2019</div>
-        <div className={cap}>Year founded</div>
+      <div style={cell}>
+        <div style={{ ...num, fontSize: 'clamp(22px,3.2vw,52px)', minHeight: 'clamp(36px,5vw,80px)', display: 'flex', alignItems: 'flex-end' }}>
+          Proprietary
+        </div>
+        <div className={cap}>Extraction technology</div>
       </div>
     </div>
   );

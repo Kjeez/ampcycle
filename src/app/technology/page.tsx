@@ -8,14 +8,14 @@ import { CtaBand } from '@/components/ui/CtaBand';
 
 export const metadata: Metadata = {
   title: 'Technology',
-  description: 'Low-energy electrochemical extraction that recovers 98% of the metal in spent lithium-ion batteries at 99% purity.',
+  description: 'AmpCycle’s proprietary low-energy extraction setup recovers 98% of the metal in spent lithium-ion batteries at up to 99.9% purity.',
 };
 
 const COMPARE = [
-  { k: 'Primary route', a: 'High-temperature smelting or strong-acid leaching', b: 'Low-energy electrochemical extraction' },
+  { k: 'Primary route', a: 'High-temperature smelting or strong-acid leaching', b: 'AmpCycle’s proprietary low-energy extraction' },
   { k: 'Energy use', a: 'Heat-intensive', b: 'Lower energy consumption than conventional processes' },
   { k: 'Chemical waste', a: 'Acid effluent and emissions to treat', b: 'Minimal chemical waste and emissions' },
-  { k: 'Recovery', a: 'Varies by route and feedstock', b: '98% metal recovery, 99% purity of Li, Co, Ni' },
+  { k: 'Recovery', a: 'Varies by route and feedstock', b: '98% metal recovery, up to 99.9% purity of Li, Co, Ni' },
   { k: 'Scale', a: 'Large, centralised plants', b: 'Modular cells for localised recycling hubs' },
 ];
 
@@ -38,7 +38,7 @@ export default function TechnologyPage() {
       <section className="gutter" style={{ paddingTop: 'clamp(130px,20vh,200px)', display: 'flex', flexDirection: 'column', gap: 'clamp(40px,6vh,72px)' }}>
         <div className="stack" style={{ gap: 28, maxWidth: 1300 }}>
           <div data-reveal className="eyebrow eyebrow--dot">
-            Technology · Electro-extraction
+            Technology · AmpCycle extraction
           </div>
           <h1 data-reveal style={{ fontSize: 'clamp(52px,8.4vw,148px)', lineHeight: 0.92, letterSpacing: '-0.05em' }}>
             Revolutionizing battery recycling.
@@ -94,7 +94,7 @@ export default function TechnologyPage() {
             <span role="columnheader" />
             <span role="columnheader">Conventional recycling</span>
             <span role="columnheader" style={{ color: 'var(--ink)' }}>
-              AmpCycle electro-extraction
+              AmpCycle extraction
             </span>
           </div>
           {COMPARE.map((c) => (
@@ -125,7 +125,7 @@ export default function TechnologyPage() {
               <h2 className="h2">A statewide recycling ecosystem.</h2>
             </div>
             <p data-reveal data-reveal-delay="120" className="lead">
-              Our vision is to make India a global leader in sustainable battery material recovery.
+              Our vision is to build India&apos;s sovereign materials ecosystem by transforming critical minerals into high-purity advanced materials, strengthening domestic capabilities, reducing import dependence, and positioning India as a global leader in strategic material innovation.
             </p>
           </div>
         }

@@ -6,10 +6,10 @@ import { ImageSlot } from '@/components/ui/ImageSlot';
 
 const FOCUS = [
   {
-    t: 'Electrochemical extraction',
-    d: 'Refining cell design, electrode materials and operating conditions so each metal is recovered selectively, at the lowest practical energy.',
-    tags: ['Electrolytic cells', 'Selectivity'],
-    ph: 'Photo: electrolytic cell prototype',
+    t: 'Extraction cell design',
+    d: 'Refining cell design, materials and operating conditions so each metal is recovered selectively, at the lowest practical energy.',
+    tags: ['Extraction cells', 'Selectivity'],
+    ph: 'Photo: extraction cell prototype',
   },
   {
     t: 'Solvent chemistry',

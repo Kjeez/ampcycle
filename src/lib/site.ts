@@ -23,6 +23,12 @@ export const CONTACT = {
   address:
     'Plot No. 20/6, D1 Block, Chinchwad Road, MIDC Chinchwad, Pimpri Chinchwad, Pune, Maharashtra, India 411019',
   maps: 'https://maps.google.com/?q=MIDC+Chinchwad+Pune+411019',
+  delhi: {
+    label: 'Social Alpha Rohini, Delhi',
+    address:
+      'Social Alpha Lab, Clean Energy International Incubation Centre, Tata Power-DDL Smart Grid Lab, Sector 15, Rohini, Delhi 110085',
+    maps: 'https://maps.app.goo.gl/ne9QoenEcKdWe9SS7',
+  },
 };
 
 export const clamp01 = (v: number) => (Number.isNaN(v) ? 0 : Math.min(1, Math.max(0, v)));

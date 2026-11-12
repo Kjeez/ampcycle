@@ -2,14 +2,25 @@
 
 import { useState } from 'react';
 
+// Approximate weight % of a battery pack, per chemistry (AmpCycle figures).
 const CHEMS = [
-  { label: 'NMC', bm: 0.38, m: { Li: 1.6, Ni: 11, Co: 3.7, Mn: 3.4, Cu: 9, Al: 6 }, note: 'Nickel manganese cobalt. Common in EVs and two-wheelers.' },
-  { label: 'LFP', bm: 0.33, m: { Li: 1.2, Ni: 0, Co: 0, Mn: 0, Cu: 10, Al: 7 }, note: 'Lithium iron phosphate. Common in buses, three-wheelers and storage.' },
-  { label: 'NCA', bm: 0.37, m: { Li: 1.5, Ni: 14, Co: 2.6, Mn: 0, Cu: 9, Al: 6 }, note: 'Nickel cobalt aluminium. Used in some EVs and power tools.' },
-  { label: 'LCO', bm: 0.4, m: { Li: 2.0, Ni: 0, Co: 17, Mn: 0, Cu: 8, Al: 5 }, note: 'Lithium cobalt oxide. Found in phones, laptops and electronics.' },
+  { label: 'NMC', bm: 0.38, m: { Li: 3, Ni: 12, Co: 12, Mn: 10, Cu: 4, Al: 4, C: 35 }, note: 'Nickel manganese cobalt. Common in EVs and two-wheelers.' },
+  { label: 'LFP', bm: 0.33, m: { Li: 3, FePO4: 30, Cu: 4, Al: 4, C: 35 }, note: 'Lithium iron phosphate. Common in buses, three-wheelers and storage.' },
+  { label: 'LCO', bm: 0.4, m: { Li: 3, Co: 20, Ni: 1, Cu: 6, Al: 6, C: 35 }, note: 'Lithium cobalt oxide. Found in phones, laptops and electronics.' },
 ];
-const NAMES = { Li: 'Lithium', Ni: 'Nickel', Co: 'Cobalt', Mn: 'Manganese', Cu: 'Copper', Al: 'Aluminium' } as const;
-const BATTERY_METALS = ['Li', 'Ni', 'Co'];
+type Material = 'Li' | 'Ni' | 'Co' | 'Mn' | 'Cu' | 'Al' | 'C' | 'FePO4';
+const NAMES: Record<Material, string> = {
+  Li: 'Lithium',
+  Ni: 'Nickel',
+  Co: 'Cobalt',
+  Mn: 'Manganese',
+  FePO4: 'Iron phosphate',
+  Cu: 'Copper',
+  Al: 'Aluminium',
+  C: 'Carbon black',
+};
+const SYMBOLS: Partial<Record<Material, string>> = { FePO4: 'FP' };
+const BATTERY_METALS: Material[] = ['Li', 'Ni', 'Co'];
 const RECOVERY = 0.98;
 
 // Slider 0–100 maps logarithmically to 100 kg – 100 t, rounded to 2 significant figures.
@@ -73,7 +84,7 @@ export function Calculator() {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
           <div className="label">Cell chemistry</div>
-          <div className="seg" role="group" aria-label="Cell chemistry">
+          <div className="seg" role="group" aria-label="Cell chemistry" style={{ gridTemplateColumns: `repeat(${CHEMS.length}, minmax(0,1fr))` }}>
             {CHEMS.map((x, i) => (
               <button key={x.label} type="button" aria-pressed={i === ci} onClick={() => setCi(i)} style={{ padding: '12px 4px' }}>
                 {x.label}
@@ -95,24 +106,24 @@ export function Calculator() {
           </div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-          {(Object.keys(NAMES) as (keyof typeof NAMES)[]).map((sym) => {
-            const pct = c.m[sym];
-            const on = pct > 0;
+          {(Object.entries(c.m) as [Material, number][]).map(([sym, pct]) => {
             const key = BATTERY_METALS.includes(sym);
-            const bc = on && key ? 'var(--acc)' : on ? 'var(--muted)' : '#3D403B';
+            const bc = key ? 'var(--acc)' : 'var(--muted)';
             return (
-              <div
-                key={sym}
-                style={{ display: 'grid', gridTemplateColumns: '44px minmax(0,1fr) auto', gap: 16, alignItems: 'center', opacity: on ? 1 : 0.35, transition: 'opacity .4s' }}
-              >
+              <div key={sym} style={{ display: 'grid', gridTemplateColumns: '44px minmax(0,1fr) auto', gap: 16, alignItems: 'center' }}>
                 <div
                   className="mono"
                   style={{ width: 44, height: 44, border: `1px solid ${bc}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, color: bc, transition: 'all .4s' }}
                 >
-                  {sym}
+                  {SYMBOLS[sym] ?? sym}
                 </div>
                 <div style={label}>
-                  <div style={{ fontSize: 15 }}>{NAMES[sym]}</div>
+                  <div style={{ fontSize: 15 }}>
+                    {NAMES[sym]}
+                    <span className="mono" style={{ fontSize: 11, color: 'var(--faint)', marginLeft: 8 }}>
+                      {pct}%
+                    </span>
+                  </div>
                   <div style={{ height: 3, background: '#232622' }}>
                     <div
                       style={{
@@ -125,14 +136,14 @@ export function Calculator() {
                   </div>
                 </div>
                 <div style={{ fontSize: 20, letterSpacing: '-0.02em', minWidth: 96, textAlign: 'right' }}>
-                  {on ? fmt((kg * pct) / 100 * RECOVERY) : '—'}
+                  {fmt((kg * pct) / 100 * RECOVERY)}
                 </div>
               </div>
             );
           })}
         </div>
         <div style={{ fontSize: 12, lineHeight: 1.55, color: 'var(--faint)', paddingTop: 8 }}>
-          Indicative only. Based on typical cell composition and 98% metal recovery efficiency. Actual yields depend on pack design, state of
+          Indicative only. Based on approximate pack composition by weight and 98% recovery efficiency. Actual yields depend on pack design, state of
           charge and feedstock.
         </div>
       </div>

@@ -880,6 +880,39 @@ html.amp-cur textarea {
 }
 
 /* ── Page blocks ──────────────────────────────────────── */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  border-top: 1px solid var(--line-2);
+}
+.facts > div {
+  padding: 32px 24px 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+}
+.stats > div {
+  padding: 32px 16px 40px;
+}
+.stats > div + div {
+  border-left: 1px solid var(--line);
+}
+@media (max-width: 900px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .stats > div:nth-child(3) {
+    border-left: 0;
+  }
+  .stats > div:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
+}
 .mono-cap {
   font-family: var(--mono);
   font-size: 12px;

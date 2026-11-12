@@ -26,10 +26,10 @@ const STEPS: { n: string; kind: Kind; label: string; title: string; desc: string
   {
     n: '03',
     kind: 'cell',
-    label: 'Electro-extraction',
-    title: 'Electrochemical extraction',
-    desc: 'Our electrolytic cell extracts the valuable metals through a low-energy electrochemical process with pH-optimised solvents, a cleaner route than traditional extraction methods.',
-    out: 'Process · low-energy electrolytic cell',
+    label: 'Extraction cell',
+    title: 'Extraction cell',
+    desc: 'Our proprietary extraction cell recovers the valuable metals through a low-energy process with pH-optimised solvents, a cleaner route than traditional extraction methods.',
+    out: 'Process · proprietary extraction cell',
   },
   {
     n: '04',
@@ -37,7 +37,7 @@ const STEPS: { n: string; kind: Kind; label: string; title: string; desc: string
     label: 'Metal recovery',
     title: 'High-purity metal recovery',
     desc: 'The final stage produces high-purity metals ready for reuse in new batteries. Any remaining residues are safely disposed of or further processed for other applications.',
-    out: 'Output · up to 99% pure Li, Co, Ni',
+    out: 'Output · up to 99.9% pure Li, Co, Ni',
   },
 ];
 
@@ -68,12 +68,30 @@ function Icon({ kind, ic, liq }: { kind: Kind; ic: string; liq: string }) {
         ))}
       </div>
     );
+  // Modular extraction cell: a housing of stacked modules with inlet and outlet ports.
   if (kind === 'cell')
     return (
-      <div style={{ position: 'relative', width: '62%', height: '56%', borderStyle: 'none solid solid', borderWidth: 1.5, borderColor: ic, borderRadius: '0 0 3px 3px', transition: t }}>
-        <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: '58%', background: liq, transition: t }} />
-        <div style={{ position: 'absolute', left: '26%', top: '-18%', width: 5, height: '90%', background: ic, transition: t }} />
-        <div style={{ position: 'absolute', right: '26%', top: '-18%', width: 5, height: '90%', background: ic, transition: t }} />
+      <div style={{ position: 'relative', width: '54%', height: '62%' }}>
+        <div style={{ position: 'absolute', left: '-14%', top: '18%', width: '14%', height: 2, background: ic, transition: t }} />
+        <div style={{ position: 'absolute', right: '-14%', bottom: '18%', width: '14%', height: 2, background: ic, transition: t }} />
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            border: `1.5px solid ${ic}`,
+            borderRadius: 4,
+            padding: 4,
+            boxSizing: 'border-box',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 3,
+            transition: t,
+          }}
+        >
+          {[0, 1, 2].map((i) => (
+            <div key={i} style={{ flex: 1, border: `1px solid ${ic}`, borderRadius: 2, background: i === 1 ? liq : 'transparent', transition: t }} />
+          ))}
+        </div>
       </div>
     );
   return (
@@ -137,7 +155,7 @@ export function Process() {
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 24, flexWrap: 'wrap' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-            <div className="eyebrow">The process · Electro-extraction</div>
+            <div className="eyebrow">The process · AmpCycle extraction</div>
             <h2 style={{ fontSize: 'clamp(26px,min(4vw,6.4vh),64px)', letterSpacing: '-0.04em', lineHeight: 1 }}>
               From spent cell to high-purity metal
             </h2>

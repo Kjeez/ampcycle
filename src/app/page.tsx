@@ -12,18 +12,23 @@ import { CONTACT } from '@/lib/site';
 const TECH = [
   {
     n: '01',
-    t: '98% metal recovery efficiency',
-    d: 'Achieve 99% purity of lithium, cobalt and nickel for higher-grade materials that go straight back into new cells.',
+    t: 'Sustainability',
+    d: 'Environmentally conscious extraction technology minimising emissions, hazardous chemicals and industrial waste.',
   },
   {
     n: '02',
-    t: 'Minimal chemical waste',
-    d: 'A cleaner and more sustainable solution with minimal emissions, using pH-optimised solvents in place of harsh acid leaching.',
+    t: 'Modular scalability',
+    d: 'Flexible modular systems enabling scalable deployment across diverse capacities and industrial applications.',
   },
   {
     n: '03',
-    t: 'Scalable technology',
-    d: 'Modular electrolytic cells add capacity as feedstock grows, from a single line to a statewide network.',
+    t: 'High purity',
+    d: 'Advanced extraction technology delivering up to 99.9% purity in recovered materials.',
+  },
+  {
+    n: '04',
+    t: 'Low chemical cost',
+    d: 'Proprietary electrolyte technology reduces chemical consumption and overall material processing costs.',
   },
 ];
 
@@ -61,24 +66,6 @@ const PARTNERS = [
   },
 ];
 
-const CASE = [
-  ['Challenge', 'Warranty returns and end-of-life NMC packs were piling up with no domestic route to recover the metals.'],
-  ['Approach', 'Scheduled collection, controlled discharge and processing through our electro-extraction line, with batch-level reporting.'],
-  ['Outcome', 'Recovered lithium, cobalt and nickel returned as battery-grade material, with nothing sent to landfill.'],
-];
-
-const CASE_STATS: [React.ReactNode, string][] = [
-  ['12 t', 'PACKS PROCESSED'],
-  ['4.6 t', 'BLACK MASS'],
-  [
-    <>
-      98<span className="acc">%</span>
-    </>,
-    'METAL RECOVERY',
-  ],
-  ['0 kg', 'TO LANDFILL'],
-];
-
 const ROADMAP = [
   { n: '01', t: 'Automated sorting', d: 'Incoming batteries identified and routed by chemistry and condition.' },
   { n: '02', t: 'IoT-enabled process monitoring', d: 'Live data from every cell and tank to keep recovery consistent.' },
@@ -88,7 +75,7 @@ const ROADMAP = [
 const FAQS: [string, string][] = [
   ['What types of batteries do you recycle?', 'We specialise in recycling lithium-ion batteries commonly used in consumer electronics, electric vehicles and industrial applications.'],
   ['Why is recycling lithium-ion batteries important?', 'Recycling reduces environmental pollution, conserves natural resources, and recovers valuable materials like lithium, cobalt and nickel for reuse.'],
-  ['How does your process work?', 'Our electro-extraction process safely discharges batteries, uses pH-optimised solvents for material recovery, and recovers metals through a low-energy electrolytic cell.'],
+  ['How does your process work?', 'Our proprietary extraction process safely discharges batteries, uses pH-optimised solvents for material recovery, and recovers metals through a low-energy extraction cell.'],
   ['Do you accept batteries from individual consumers?', 'Currently, we partner with manufacturers, OEMs and waste management companies. Individual consumers should contact local recycling centres for battery disposal.'],
   ['Is there a fee for recycling services?', 'Fees depend on battery type, quantity and specific service requirements. Reach out and we will put together a proposal.'],
   ['How do you ensure safety?', 'We adhere to strict safety protocols, including controlled discharging and handling procedures, to prevent hazards during the recycling process.'],
@@ -106,21 +93,18 @@ export default function HomePage() {
         <div className="split" style={{ gap: 40 }}>
           <div className="stack" style={{ gap: 28 }}>
             <div data-reveal className="eyebrow eyebrow--dot">
-              Li-ion battery recycling · India
+              Engineering critical and rare earth minerals
             </div>
-            <h1 data-reveal style={{ fontSize: 'clamp(48px,7.2vw,124px)', lineHeight: 0.94, letterSpacing: '-0.045em', textWrap: 'balance' }}>
-              Battery-grade metals from spent lithium-ion cells.
+            <h1 data-reveal style={{ fontSize: 'clamp(56px,9vw,156px)', lineHeight: 0.9, letterSpacing: '-0.05em', textWrap: 'balance' }}>
+              Reinventing currents<span className="acc">.</span>
             </h1>
           </div>
           <div data-reveal data-reveal-delay="150" className="stack" style={{ gap: 28, maxWidth: 440, justifySelf: 'end', paddingBottom: 10 }}>
             <p className="lead">
-              AmpCycle&apos;s low-energy electrochemical extraction recovers lithium, cobalt and nickel from used batteries at up to 98%
-              efficiency, with minimal chemical waste.
+              AmpCycle is an advanced materials and specialty chemicals company producing rare earth materials and high-purity chemicals
+              through its proprietary, sustainable extraction technology.
             </p>
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-              <a href="#contact" className="btn btn--acc">
-                Partner with us
-              </a>
               <a href="#process" className="btn btn--ghost">
                 See the process
               </a>
@@ -131,9 +115,6 @@ export default function HomePage() {
           <Parallax mode="page" factor={0.16} overscan="14%">
             <ImageSlot id="hero-facility" placeholder="Hero photo: battery modules / recycling line, wide" priority />
           </Parallax>
-          <div className="media-tag" style={{ right: 20, bottom: 18 }}>
-            MIDC CHINCHWAD · MAHARASHTRA
-          </div>
         </div>
         <Stats />
       </section>
@@ -157,11 +138,11 @@ export default function HomePage() {
             <h2 className="h2">Cleaner chemistry, built to scale.</h2>
           </div>
           <p data-reveal data-reveal-delay="120" className="lead">
-            Conventional recovery relies on heat and strong acids. Our electrolytic route works at low energy and keeps chemical waste to a
-            minimum.
+            Conventional recovery relies on heat and strong acids. Our proprietary extraction works at low energy and keeps chemical waste to
+            a minimum.
           </p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%,280px),1fr))', gap: 'clamp(24px,3vw,48px)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%,240px),1fr))', gap: 'clamp(24px,3vw,48px)' }}>
           {TECH.map((c, i) => (
             <div key={c.n} data-reveal data-reveal-delay={i ? String(i * 100) : undefined} className="tech-card">
               <div className="mono acc" style={{ fontSize: 12 }}>
@@ -242,75 +223,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="case" className="sec" style={{ paddingTop: 0, gap: 'clamp(40px,6vh,64px)' }}>
-        <div data-reveal className="stack" style={{ paddingTop: 'clamp(60px,10vh,100px)', borderTop: '1px solid var(--line)' }}>
-          <div style={{ display: 'flex', gap: 14, alignItems: 'center', flexWrap: 'wrap' }}>
-            <span className="eyebrow">Case study</span>
-            <span
-              className="mono"
-              style={{
-                fontSize: 10,
-                letterSpacing: '.1em',
-                textTransform: 'uppercase',
-                color: 'var(--dim)',
-                border: '1px dashed rgba(237,238,233,.35)',
-                padding: '4px 8px',
-                borderRadius: 2,
-              }}
-            >
-              Placeholder figures · replace with real data
-            </span>
-          </div>
-          <h2 style={{ fontSize: 'clamp(34px,4.4vw,72px)', letterSpacing: '-0.045em', lineHeight: 1, maxWidth: 1100, textWrap: 'balance' }}>
-            Closing the loop for a two-wheeler EV maker.
-          </h2>
-        </div>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%,420px),1fr))',
-            gap: 'clamp(32px,4vw,72px)',
-            alignItems: 'start',
-          }}
-        >
-          <div data-reveal className="media" style={{ aspectRatio: '4 / 3' }}>
-            <ImageSlot id="case-study" placeholder="Photo: client packs arriving at the plant" sizes="(max-width: 900px) 100vw, 50vw" />
-          </div>
-          <div data-reveal data-reveal-delay="120" style={{ display: 'flex', flexDirection: 'column' }}>
-            {CASE.map(([k, v], i) => (
-              <div key={k} className="kv-row" style={i === CASE.length - 1 ? { borderBottom: '1px solid var(--line-2)' } : undefined}>
-                <span className="label" style={{ paddingTop: 3 }}>
-                  {k}
-                </span>
-                <span className="body">{v}</span>
-              </div>
-            ))}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0,1fr))', gap: 1, background: 'var(--line)', marginTop: 32 }}>
-              {CASE_STATS.map(([v, l], i) => (
-                <div
-                  key={l}
-                  style={{
-                    background: 'var(--bg)',
-                    padding: i % 2 ? 20 : '20px 20px 20px 0',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 6,
-                  }}
-                >
-                  <span style={{ fontSize: 'clamp(36px,3.4vw,52px)', letterSpacing: '-0.04em', lineHeight: 1 }}>{v}</span>
-                  <span className="mono" style={{ fontSize: 11, letterSpacing: '.08em', color: 'var(--dim)' }}>
-                    {l}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="media" style={{ height: 'clamp(360px,80vh,860px)', borderRadius: 0 }}>
         <Parallax mode="center" factor={-0.18} overscan="18%">
-          <ImageSlot id="band-lab" placeholder="Full-bleed photo: electrolytic cell / lab detail" />
+          <ImageSlot id="band-lab" placeholder="Full-bleed photo: black mass detail" />
         </Parallax>
       </section>
 
@@ -326,8 +241,8 @@ export default function HomePage() {
       >
         <div data-reveal className="stack pin-wide" style={{ gap: 28 }}>
           <div className="eyebrow">Future roadmap</div>
-          <h2 style={{ fontSize: 'clamp(34px,4vw,64px)', letterSpacing: '-0.04em', lineHeight: 1.04, textWrap: 'balance' }}>
-            Our vision is to make India a global leader in sustainable battery material recovery.
+          <h2 style={{ fontSize: 'clamp(28px,2.8vw,44px)', letterSpacing: '-0.03em', lineHeight: 1.12, textWrap: 'balance' }}>
+            Our vision is to build India&apos;s sovereign materials ecosystem by transforming critical minerals into high-purity advanced materials, strengthening domestic capabilities, reducing import dependence, and positioning India as a global leader in strategic material innovation.
           </h2>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column' }}>

@@ -22,10 +22,10 @@ const STEPS = [
   },
   {
     n: '03',
-    title: 'Electrochemical extraction',
-    desc: 'Using our electrolytic cell technology, we extract valuable metals through a low-energy electrochemical process. This method is more environmentally friendly than traditional extraction methods.',
+    title: 'Extraction cell',
+    desc: 'Using our proprietary extraction cell, we extract valuable metals through a low-energy process. This method is more environmentally friendly than traditional extraction methods.',
     slot: 'tech-step-3',
-    ph: 'Photo: electrolytic cell in operation',
+    ph: 'Photo: extraction cell in operation',
   },
   {
     n: '04',
